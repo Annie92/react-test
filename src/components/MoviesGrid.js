@@ -4,8 +4,9 @@ import '../styles.css';
 export default function MoviesGrid() {
     const [ movies, setMovies] = useState([]);
     useEffect( () => {
-        const m = ["drishyam", "top gun maverick", "Logout"];
-        setMovies(m);
+        fetch('movies.json')
+            .then( response => response.json())
+            .then( data => setMovies(data));
     }, []);
     return(
         <div className=''>
