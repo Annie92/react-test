@@ -154,8 +154,8 @@ body {
 }
 
 .logo {
-  width: 100%;
-  max-width: 920px;
+  width: 35%;
+  /* max-width: 920px; */
   margin: 0 auto;
   display: block;
 }

@@ -9,8 +9,23 @@ export default function MoviesGrid() {
             .then( data => setMovies(data));
     }, []);
     return(
-        <div className=''>
-            {movies.length}
+        <div>
+            <span>Total movies: {movies.length}</span>
+            <div className='movies-grid'>
+                {
+                    movies.map( movie => (
+                        <div key={movie.id} className='movie-card'>
+                            <img src={`images/${movie.image}`} alt={movie.title}/>
+                            <div className='movie-card-info'>
+                                <h3>Title: <span className='movie-card-title'>{movie.title}</span></h3>
+                                <p>Genre: <span className='movie-card-genre'>{movie.genre}</span></p>
+                                <p>Rating: <span className='movie-card-rating'>{movie.rating}</span></p>
+                            </div>
+                        </div>
+                    ))
+                }
+                    
+            </div>
         </div>
     );
 }
