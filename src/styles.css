@@ -137,15 +137,15 @@ body {
 }
 
 .rating-good {
-  color: rgb(148, 255, 105);
+  background-color: rgb(56 185 4);
 }
 
 .rating-ok {
-  color: rgb(255, 209, 123);
+  background-color: rgb(222 148 11);
 }
 
 .rating-bad {
-  color: rgb(255, 123, 123);
+  background-color: rgb(194 21 21);
 }
 
 .title {

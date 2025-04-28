@@ -6,6 +6,15 @@ export default function MovieCard({movie}) {
     const handleError = (e) => {
         e.target.src = `images/default.jpg`;
     }
+    const addRatingClass = (rating) => {
+        if ( rating >= 8 ) {
+            return 'rating-good'
+        } 
+        if( rating >= 5 ) {
+            return 'rating-ok'
+        }
+        return 'rating-bad';
+    }
     return (
         <div key={movie.id} className="movie-card">
             <img src={`images/${movie.image}`} alt={movie.title} onError={handleError}/>
@@ -17,7 +26,7 @@ export default function MovieCard({movie}) {
                 Genre: <span className="movie-card-genre">{movie.genre}</span>
             </p>
             <p>
-                Rating: <span className="movie-card-rating">{movie.rating}</span>
+                Rating: <span className={`movie-card-rating ${addRatingClass(movie.rating)}`}>{movie.rating}</span>
             </p>
             </div>
         </div>
