@@ -13,9 +13,11 @@ export default function MoviesGrid() {
   }, []);
 
   const handleSearchChange = (e) => {
-    console.log(e.target.value);
     setSearchTerm(e.target.value);
   };
+  const filteredMovies = movies.filter((movie) =>
+    movie.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div>
@@ -28,7 +30,7 @@ export default function MoviesGrid() {
       />
       <span>Total movies: {movies.length}</span>
       <div className="movies-grid">
-        {movies.map((movie) => (
+        {filteredMovies.map((movie) => (
           <MovieCard movie={movie} key={movie.id}></MovieCard>
         ))}
       </div>
