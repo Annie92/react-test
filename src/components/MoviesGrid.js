@@ -17,6 +17,13 @@ export default function MoviesGrid() {
   const handleSearchChange = (e) => {
     setSearchTerm(e.target.value);
   };
+  const handleGenreChange = (e) => {
+    setGenre(e.target.value);
+  }
+  const handleRatingChange = (e) => {
+    setRating(e.target.value);
+  }
+
   const filteredMovies = movies.filter((movie) =>
     movie.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -34,7 +41,7 @@ export default function MoviesGrid() {
         <h3>Filter by:</h3>
         <div className="filter-slot">
           <label>Genre: </label>
-          <select>
+          <select className="filter-dropdown" value={genre} onChange={handleGenreChange}>
             <option>All Genres</option>
             <option>Drama</option>
             <option>Horror</option>
@@ -44,7 +51,7 @@ export default function MoviesGrid() {
         </div>
         <div className="filter-slot">
           <label>Rating: </label>
-          <select>
+          <select className="filter-dropdown" value={rating} onChange={handleRatingChange}>
             <option>All</option>
             <option>Good</option>
             <option>Ok</option>
